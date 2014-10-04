@@ -14,10 +14,38 @@
 	      		<li><a href="index.html"><f:message key="menu.item1"/></a></li>
 	      	</c:otherwise>
 	      </c:choose>
-          <li><a href="ourwork.html"><f:message key="menu.item2"/></a></li>
-          <li><a href="testimonials.html"><f:message key="menu.item3"/></a></li>
-          <li><a href="projects.html"><f:message key="menu.item4"/></a></li>
-          <li><a href="contact.html"><f:message key="menu.item5"/></a></li>
+	      <c:choose>
+	      	<c:when test="${page=='ourwork'}">
+	      		<li class="current"><a href="ourwork.html"><f:message key="menu.item2"/></a></li>
+	      	</c:when>
+	      	<c:otherwise>
+	      		<li><a href="ourwork.html"><f:message key="menu.item2"/></a></li>
+	      	</c:otherwise>
+	      </c:choose>
+	      <c:choose>
+	      	<c:when test="${page=='testimonials'}">
+	      		<li class="current"><a href="testimonials.html"><f:message key="menu.item3"/></a></li>
+	      	</c:when>
+	      	<c:otherwise>
+	      		<li><a href="testimonials.html"><f:message key="menu.item3"/></a></li>
+	      	</c:otherwise>
+	      </c:choose>
+	      <c:choose>
+	      	<c:when test="${page=='projects'}">
+	      		<li class="current"><a href="projects.html"><f:message key="menu.item4"/></a></li>
+	      	</c:when>
+	      	<c:otherwise>
+	      		<li><a href="projects.html"><f:message key="menu.item4"/></a></li>
+	      	</c:otherwise>
+	      </c:choose>
+	      <c:choose>
+	      	<c:when test="${page=='contact'}">
+	      		<li class="current"><a href="contact.html"><f:message key="menu.item5"/></a></li>
+	      	</c:when>
+	      	<c:otherwise>
+	      		<li><a href="contact.html"><f:message key="menu.item5"/></a></li>
+	      	</c:otherwise>
+	      </c:choose>
         </ul>
       </div>
     </div>

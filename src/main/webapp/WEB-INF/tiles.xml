@@ -9,33 +9,31 @@
         <put-attribute name="leftPanel" value="/WEB-INF/views/includes/leftPanel.jsp" />
         <put-attribute name="content"  value="content" />
         <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp" />
-        <put-attribute name="page" value=""/>
     </definition>
 
     <!-- application -->
     <definition name="home"  extends="main">
         <put-attribute name="content" value="/WEB-INF/views/content/index.jsp"/>
-        <put-attribute name="page" value="index"/>
     </definition>
 
-    <definition name="projects"  extends="main">
-        <put-attribute name="content" value="/WEB-INF/views/includes/content/projects.jsp"/>
-        <put-attribute name="page" value="index"/>
-    </definition>
-
-    <definition name="contact"  extends="main">
-        <put-attribute name="content" value="/WEB-INF/views/includes/content/contact.jsp"/>
-        <put-attribute name="page" value="index"/>
+    <definition name="ourwork"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/ourwork.jsp"/>
     </definition>
 
     <definition name="testimonials"  extends="main">
-        <put-attribute name="content" value="/WEB-INF/views/includes/content/testimonials.jsp"/>
-        <put-attribute name="page" value="index"/>
+        <put-attribute name="content" value="/WEB-INF/views/content/testimonials.jsp"/>
+    </definition>
+
+    <definition name="projects"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/projects.jsp"/>
+    </definition>
+
+    <definition name="contact"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/contact.jsp"/>
     </definition>
 	
 	<definition name="page_not_found"  extends="main">
         <put-attribute name="content" value="/WEB-INF/views/page_not_found.jsp"/>
-        <put-attribute name="page" value="index"/>
     </definition>
 
 </tiles-definitions>
