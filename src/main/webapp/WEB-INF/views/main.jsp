@@ -16,6 +16,7 @@
         	<tiles:insertAttribute name="header"/>
 			<div id="site_content">		
         		<tiles:insertAttribute name="leftPanel"/>
+        		<tiles:insertAttribute name="slideshow"/>
             	<tiles:insertAttribute name="content"/>
             </div>
         	<tiles:insertAttribute name="footer"/>

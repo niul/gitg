@@ -7,6 +7,7 @@
     <definition name="main" template="/WEB-INF/views/main.jsp">
         <put-attribute name="header" value="/WEB-INF/views/includes/header.jsp" />
         <put-attribute name="leftPanel" value="/WEB-INF/views/includes/leftPanel.jsp" />
+        <put-attribute name="slideshow" value="/WEB-INF/views/includes/slideshow.jsp" />
         <put-attribute name="content"  value="content" />
         <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp" />
     </definition>
