@@ -320,6 +320,9 @@ ul#menu li:hover a
   border: 1px solid #E5E5DB; 
   background: #FFF; 
   color: #47433F;}
+ 
+ .form_error
+{ color: #FF3300;}
   
 .form_settings input[type="checkbox"]
 { padding: 2px 0; 

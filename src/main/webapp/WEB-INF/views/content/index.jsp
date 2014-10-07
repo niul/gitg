@@ -1,15 +1,5 @@
 <%@ include file="/WEB-INF/views/taglibs.jsp"%>
 
-<div class="slideshow">
-	<ul class="slideshow">
-		<li class="show"><img width="680" height="400"
-			src="static/images/home_1.jpg" alt="&quot;Enter your caption here&quot;" /></li>
-		<li><img width="680" height="400" src="static/images/home_2.jpg"
-			alt="&quot;Enter your caption here&quot;" /></li>
-	</ul>
-</div>
-<!--close slideshow-->
-
 <div id="content">
 	<div class="content_item">
 		<h1>Welcome To Your Website</h1>
@@ -37,10 +27,6 @@
 			<div class="button_small">
 				<a href="#">Read more</a>
 			</div>
-			<!--close button_small-->
 		</div>
-		<!--close content_container-->
 	</div>
-	<!--close content_item-->
 </div>
-<!--close content-->
