@@ -32,6 +32,12 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
 		<!-- Spring Dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -65,16 +71,16 @@
 			<version>1.8.2</version>
 		</dependency>
 		<dependency>
-        	<groupId>javax.validation</groupId>
-        	<artifactId>validation-api</artifactId>
-        	<version>1.1.0.Final</version>
-    	</dependency>
-    	<dependency>
-        	<groupId>org.hibernate</groupId>
-        	<artifactId>hibernate-validator</artifactId>
-        	<version>5.0.1.Final</version>
-    	</dependency> 
-		
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.0.1.Final</version>
+		</dependency>
+
 		<!-- Tiles -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
@@ -94,12 +100,13 @@
 			<version>2.2.2</version>
 			<type>jar</type>
 		</dependency>
-		
-		<!-- SLF --><dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.14</version>
-        </dependency>
+
+		<!-- SLF -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -172,19 +179,17 @@
 					<!-- address>0.0.0.0</address> <port>8080</port -->
 					<!-- Comment in the below snippet to enable local debugging with a remove 
 						debugger like those included with Eclipse or IntelliJ -->
-					<!--jvmFlags> 
-						<jvmFlag></jvmFlag> 
-					</jvmFlags-->
+					<!--jvmFlags> <jvmFlag></jvmFlag> </jvmFlags -->
 				</configuration>
 			</plugin>
 			<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-eclipse-plugin</artifactId>
-        		<configuration>
-          			<wtpapplicationxml>true</wtpapplicationxml>
-          			<wtpversion>2.0</wtpversion>
-        		</configuration>
-      		</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<wtpapplicationxml>true</wtpapplicationxml>
+					<wtpversion>2.0</wtpversion>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
