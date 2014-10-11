@@ -14,6 +14,7 @@ public class UIController {
 	private static final String HOME = "home";
 	private static final String OURWORK = "ourwork";
 	private static final String PAGE = "page";
+	private static final String PAGE_NOT_FOUND = "page_not_found";
 	private static final String PROJECTS = "projects";
 	private static final String TESTIMONIALS = "testimonials";
 	
@@ -35,6 +36,11 @@ public class UIController {
 	@RequestMapping(value = "/projects.html")
 	public ModelAndView projects() {
 		return setView(PROJECTS);
+	}
+	
+	@RequestMapping(value = "/404.html")
+	public ModelAndView pageNotFound() {
+		return setView(PAGE_NOT_FOUND);
 	}
 	
 	private ModelAndView setView(String pageName) {

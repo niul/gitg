@@ -38,7 +38,7 @@
     </definition>
 	
 	<definition name="page_not_found"  extends="main">
-        <put-attribute name="content" value="/WEB-INF/views/page_not_found.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/views/content/page_not_found.jsp"/>
     </definition>
 
 </tiles-definitions>

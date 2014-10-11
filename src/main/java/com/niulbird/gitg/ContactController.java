@@ -5,6 +5,8 @@ import java.util.logging.Level;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niulbird.gitg.command.ContactData;
+import com.niulbird.gitg.util.MailUtil;
 
 @Controller
 public class ContactController {
@@ -22,6 +25,8 @@ public class ContactController {
 	private static final String SUCCESS = "success";
 	private static final String PAGE = "page";
 	
+	@Autowired
+	private MessageSource messageSource;
 	
 	@RequestMapping(value = "/contact.html", method = RequestMethod.GET)
 	public ModelAndView contactView(@ModelAttribute("contactData") ContactData contactData) {
@@ -39,6 +44,15 @@ public class ContactController {
 		if (result.hasErrors()) {
 			return setView(CONTACT);
 		} else {
+			MailUtil.sendMail(messageSource.getMessage("email.fromEmail", null, null),
+					messageSource.getMessage("email.fromName", null, null),
+					messageSource.getMessage("email.toEmail", null, null), 
+					messageSource.getMessage("email.toName", null, null), 
+					messageSource.getMessage("email.subject", null, null), 
+					"Contact Us Received:\n" +
+					"Email: " + contactData.getEmail() + "\n" +
+					"Name: " + contactData.getName() + "\n" +
+					"Message: " + contactData.getMessage());
 			return setView(SUCCESS);
 		}
 	}
