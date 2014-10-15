@@ -15,11 +15,7 @@ public class MailUtilTest extends BaseTestCase {
 		contactData.setMessage("Testing 1 2 3");
 		contactData.setName("Joe Bloggs");
 		
-		MailUtil.sendMail(messageSource.getMessage("email.fromEmail", null, null),
-			messageSource.getMessage("email.fromName", null, null),
-			messageSource.getMessage("email.toEmail", null, null), 
-			messageSource.getMessage("email.toName", null, null), 
-			messageSource.getMessage("email.subject", null, null), 
+		MailUtil.sendMail(messageSource,
 			"Contact Us Received:\n" +
 			"Email: " + contactData.getEmail() + "\n" +
 			"Name: " + contactData.getName() + "\n" +

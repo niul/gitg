@@ -5,30 +5,46 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.springframework.context.MessageSource;
+
 public class MailUtil {
 	private static final Logger log = Logger.getLogger("com.niulbird.gitg");
-
-	public static void sendMail(String fromEmail, String fromName, 
-			String toEmail, String toName, 
-			String subject, String body) {
+	
+	public static void sendMail(final MessageSource messageSource, String body) {
+		log.fine("MailUtil::sendMail(): " + body);
 		Properties props = new Properties();
-        Session session = Session.getDefaultInstance(props, null);
+		props.put("mail.smtp.auth", messageSource.getMessage("mail.smtp.auth", null, null));
+		props.put("mail.smtp.starttls.enable", messageSource.getMessage("mail.smtp.starttls.enable", null, null));
+		props.put("mail.smtp.host", messageSource.getMessage("mail.smtp.host", null, null));
+		props.put("mail.smtp.port", messageSource.getMessage("mail.smtp.port", null, null));
+		
+        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(messageSource.getMessage("mail.smtp.user", null, null),
+						messageSource.getMessage("mail.smtp.pass", null, null));
+			}
+		  });
 
         try {
             Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress(fromEmail, fromName));
+            msg.setFrom(new InternetAddress(
+					messageSource.getMessage("email.fromEmail", null, null), 
+					messageSource.getMessage("email.fromName", null, null)));
             msg.addRecipient(Message.RecipientType.TO,
-                             new InternetAddress(toEmail, toName));
-            msg.setSubject(subject);
+                             new InternetAddress(
+                 					messageSource.getMessage("email.toEmail", null, null), 
+                					messageSource.getMessage("email.toName", null, null)));
+            msg.setSubject(messageSource.getMessage("email.subject", null, null));
             msg.setText(body);
             Transport.send(msg);
-
+            log.fine("Message sent.");
         } catch (AddressException e) {
             log.severe("AddressException: " + e.getMessage());
 			e.printStackTrace();

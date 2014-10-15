@@ -7,7 +7,6 @@
 	<groupId>com.niulbird</groupId>
 	<artifactId>gitg</artifactId>
 	<properties>
-		<appengine.app.version>1</appengine.app.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.1.1.RELEASE</spring.version>
 	</properties>
@@ -16,11 +15,6 @@
 	</prerequisites>
 	<dependencies>
 		<!-- Compile/runtime dependencies -->
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-1.0-sdk</artifactId>
-			<version>1.9.12</version>
-		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -100,6 +94,12 @@
 			<version>2.2.2</version>
 			<type>jar</type>
 		</dependency>
+				
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
 
 		<!-- SLF -->
 		<dependency>
@@ -131,27 +131,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-testing</artifactId>
-			<version>1.9.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-stubs</artifactId>
-			<version>1.9.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -176,7 +158,6 @@
 				<configuration>
 					<archiveClasses>true</archiveClasses>
 					<webResources>
-						<!-- in order to interpolate version from pom into appengine-web.xml -->
 						<resource>
 							<directory>${basedir}/src/main/webapp/WEB-INF</directory>
 							<filtering>true</filtering>
@@ -185,26 +166,12 @@
 					</webResources>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>com.google.appengine</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>1.9.12</version>
-				<configuration>
-					<enableJarClasses>false</enableJarClasses>
-					<!-- Comment in the below snippet to bind to all IPs instead of just 
-						localhost -->
-					<!-- address>0.0.0.0</address> <port>8080</port -->
-					<!-- Comment in the below snippet to enable local debugging with a remove 
-						debugger like those included with Eclipse or IntelliJ -->
-					<!--jvmFlags> <jvmFlag></jvmFlag> </jvmFlags -->
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<configuration>
 					<wtpapplicationxml>true</wtpapplicationxml>
+					<wtpdefaultserver>Tomcat</wtpdefaultserver>
 					<wtpversion>2.0</wtpversion>
 				</configuration>
 			</plugin>
