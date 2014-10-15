@@ -13,6 +13,7 @@
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
       <list>
+        <value>classpath:config</value>
         <value>classpath:gitg-messages</value>
       </list>
     </property>
