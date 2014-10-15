@@ -2,7 +2,6 @@ package com.niulbird.gitg.util;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
-import java.util.logging.Logger;
 
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -12,13 +11,15 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.log4j.Logger;
+
 import org.springframework.context.MessageSource;
 
 public class MailUtil {
-	private static final Logger log = Logger.getLogger("com.niulbird.gitg");
+	private static final Logger log = Logger.getLogger(MailUtil.class);
 	
 	public static void sendMail(final MessageSource messageSource, String body) {
-		log.fine("MailUtil::sendMail(): " + body);
+		log.info("MailUtil::sendMail(): " + body);
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", messageSource.getMessage("mail.smtp.auth", null, null));
 		props.put("mail.smtp.starttls.enable", messageSource.getMessage("mail.smtp.starttls.enable", null, null));
@@ -44,15 +45,15 @@ public class MailUtil {
             msg.setSubject(messageSource.getMessage("email.subject", null, null));
             msg.setText(body);
             Transport.send(msg);
-            log.fine("Message sent.");
+            log.debug("Message sent.");
         } catch (AddressException e) {
-            log.severe("AddressException: " + e.getMessage());
+            log.error("AddressException: " + e.getMessage());
 			e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
-            log.severe("AddressException: " + e.getMessage());
+            log.error("AddressException: " + e.getMessage());
 			e.printStackTrace();
 		} catch (javax.mail.MessagingException e) {
-            log.severe("AddressException: " + e.getMessage());
+            log.error("AddressException: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}

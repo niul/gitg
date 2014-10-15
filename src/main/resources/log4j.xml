@@ -13,6 +13,10 @@
     <priority value="DEBUG" />
     <appender-ref ref="CONSOLE" />
 </category>
+<category name="com.niulbird" additivity="false">
+    <priority value="DEBUG" />
+    <appender-ref ref="CONSOLE" />
+</category>
 
 
 <!-- Category Section End -->

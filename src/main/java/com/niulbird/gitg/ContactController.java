@@ -1,12 +1,13 @@
 package com.niulbird.gitg;
 
-import java.util.logging.Logger;
-import java.util.logging.Level;
+import org.apache.log4j.Logger;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,11 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niulbird.gitg.command.ContactData;
-import com.niulbird.gitg.util.MailUtil;
 
 @Controller
 public class ContactController {
-	private static final Logger log = Logger.getLogger("com.niulbird.gitg");
+	private static final Logger log = Logger.getLogger(ContactController.class);
 	
 	private static final String CONTACT = "contact";
 	private static final String SUCCESS = "success";
@@ -28,9 +28,15 @@ public class ContactController {
 	@Autowired
 	private MessageSource messageSource;
 	
+	@Autowired
+	private JavaMailSenderImpl mailSender;
+	
+	@Autowired
+	private SimpleMailMessage mailMessage;
+	
 	@RequestMapping(value = "/contact.html", method = RequestMethod.GET)
 	public ModelAndView contactView(@ModelAttribute("contactData") ContactData contactData) {
-		log.fine("Entering contactView(): " + contactData.getName() + "|" 
+		log.info("Entering contactView(): " + contactData.getName() + "|" 
 				+ contactData.getEmail() + "|" + contactData.getMessage());
 		return setView(CONTACT);
 	}	
@@ -38,17 +44,18 @@ public class ContactController {
 	@RequestMapping(value = "/contact.html", method = RequestMethod.POST)
 	public ModelAndView contactPost(@Valid ContactData contactData,
 			BindingResult result) {
-		log.fine("Entering contactPost(): " + contactData.getName() + "|" 
+		log.info("Entering contactPost(): " + contactData.getName() + "|" 
 				+ contactData.getEmail() + "|" + contactData.getMessage());
 		
 		if (result.hasErrors()) {
 			return setView(CONTACT);
 		} else {
-			MailUtil.sendMail(messageSource, 
-					"Contact Us Received:\n" +
+			SimpleMailMessage message = new SimpleMailMessage(mailMessage);
+			message.setText("Contact Us Received:\n" +
 					"Email: " + contactData.getEmail() + "\n" +
 					"Name: " + contactData.getName() + "\n" +
 					"Message: " + contactData.getMessage());
+			mailSender.send(message);
 			return setView(SUCCESS);
 		}
 	}
@@ -59,7 +66,7 @@ public class ContactController {
 		mav.setViewName(pageName);
 		mav.addObject(PAGE, pageName);
 		
-		log.log(Level.FINE, "Setting view: " + pageName);
+		log.debug("Setting view: " + pageName);
 		
 		return mav;
 	}

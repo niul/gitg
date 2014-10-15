@@ -1,7 +1,6 @@
 package com.niulbird.gitg;
 
-import java.util.logging.Logger;
-import java.util.logging.Level;
+import org.apache.log4j.Logger;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UIController {
-	private static final Logger log = Logger.getLogger("com.niulbird.gitg");
+	private static final Logger log = Logger.getLogger(UIController.class);
 	
 	private static final String HOME = "home";
 	private static final String OURWORK = "ourwork";
@@ -49,7 +48,7 @@ public class UIController {
 		mav.setViewName(pageName);
 		mav.addObject(PAGE, pageName);
 		
-		log.log(Level.FINE, "Setting view: " + pageName);
+		log.debug("Setting view: " + pageName);
 		
 		return mav;
 	}
