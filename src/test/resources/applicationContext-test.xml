@@ -20,11 +20,39 @@
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
-      <list>
-        <value>file:src/main/resources/gitg-messages</value>
-      </list>
-    </property>
-
+      		<list>
+        		<value>file:src/main/resources/gitg-messages</value>
+      		</list>
+    	</property>
     </bean>
+    
+    <bean id="mailProperties"
+    	class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+     	<property name="location" value="classpath:mail.properties" />
+ 	</bean>
 
+ 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    	<property name="host" value="${mail.smtp.host}" />
+    	<property name="port" value="${mail.smtp.port}" />
+    	<property name="username" value="${mail.smtp.user}" />
+    	<property name="password" value="${mail.smtp.pass}" />
+    	<property name="javaMailProperties">
+        	<props>
+            	<!-- Use SMTP-AUTH to authenticate to SMTP server -->
+            	<prop key="mail.smtp.auth">true</prop>
+            	<!-- Use TLS to encrypt communication with SMTP server -->
+            	<prop key="mail.smtp.starttls.enable">true</prop>
+        	</props>
+    	</property>
+	</bean>
+	
+	<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="to">
+        	<value><![CDATA[${email.toName} <${email.toEmail}>]]></value>
+    	</property>
+		<property name="from">
+        	<value><![CDATA[${email.fromName} <${email.fromEmail}>]]></value>
+    	</property>
+        <property name="subject" value="${email.subject}"/>
+    </bean>
 </beans>
