@@ -8,6 +8,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=9" />
   <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+  <link rel="stylesheet"  type="text/css" href="<spring:theme code="css"/>"/>
   <script type="text/javascript" src="static/js/jquery.min.js"></script>
   <script type="text/javascript" src="static/js/image_slide.js"></script>
 </head>

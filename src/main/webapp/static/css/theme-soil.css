@@ -1,0 +1,21 @@
+body {
+  font: normal 85% Arial, Helvetica, sans-serif;
+  background: #676767 url(../images/background_soil.jpg) repeat;
+  color: #000;
+}
+
+#menubar {
+  width: 960px;
+  height: 50px;
+  margin-top: 50px;
+  background: #284020;
+  background: -moz-linear-gradient(#233a1b, #284020);
+  background: -o-linear-gradient(#233a1b, #284020);
+  background: -webkit-linear-gradient(#233a1b, #284020);
+  border-radius: 15px 15px 0px 0px;
+  -moz-border-radius: 15px 15px 0px 0px;
+  -webkit-border: 15px 15px 0px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+}

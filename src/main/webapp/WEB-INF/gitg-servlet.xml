@@ -42,5 +42,8 @@
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
             <property name="paramName" value="siteLanguage"/>
         </bean>
+        <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+    		<property name="paramName" value="theme" />
+		</bean>
     </mvc:interceptors>
 </beans>

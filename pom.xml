@@ -180,6 +180,30 @@
 					<wtpversion>2.0</wtpversion>
 				</configuration>
 			</plugin>
+			<plugin>
+        		<groupId>org.jasig.maven</groupId>
+        		<artifactId>sass-maven-plugin</artifactId>
+        		<version>1.1.0</version>
+        		<executions>
+        			<execution>
+            			<id>package</id>
+            			<phase>prepare-package</phase>
+            			<goals>
+                			<goal>update-stylesheets</goal>
+            			</goals>
+        			</execution>
+    			</executions>
+        		<configuration>
+        			<resources>
+            			<resource>
+                			<source>
+                    			<directory>${basedir}/src/main/webapp/static/css/scss</directory>
+                			</source>
+                			<destination>${project.basedir}/src/main/webapp/static/css</destination>
+            			</resource>
+        			</resources>
+    			</configuration>
+      		</plugin>
 		</plugins>
 	</build>
 </project>

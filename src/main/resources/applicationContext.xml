@@ -9,6 +9,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+	<!-- Message Source -->
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
@@ -19,6 +20,19 @@
     	</property>
     </bean>
     
+    <!-- Theme Change Interceptor and Resolver definition -->
+	<bean id="themeSource"
+		class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+			<property name="basenamePrefix" value="theme-" />
+	</bean>
+	<bean id="themeChangeInterceptor" class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+    	<property name="paramName" value="theme" />
+	</bean>
+	<bean id="themeResolver" class="org.springframework.web.servlet.theme.CookieThemeResolver">
+    	<property name="defaultThemeName" value="default" />
+	</bean>
+    
+    <!-- Spring Mail configuration -->
     <bean id="mailProperties"
     	class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
      	<property name="location" value="classpath:mail.properties" />
