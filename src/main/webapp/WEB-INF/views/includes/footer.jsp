@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/views/taglibs.jsp" %>
 
-	<div id="content_green">
+	<div id="content_green" class="theme_gradient">
 	  <div class="content_green_container_box">
 	  </div>
       <div class="content_green_container_box">
