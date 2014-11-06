@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niulbird.gitg.command.ContactData;
+import com.niulbird.gitg.util.MailUtil;
 
 @Controller
 public class ContactController {
@@ -50,12 +51,8 @@ public class ContactController {
 		if (result.hasErrors()) {
 			return setView(CONTACT);
 		} else {
-			SimpleMailMessage message = new SimpleMailMessage(mailMessage);
-			message.setText("Contact Us Received:\n" +
-					"Email: " + contactData.getEmail() + "\n" +
-					"Name: " + contactData.getName() + "\n" +
-					"Message: " + contactData.getMessage());
-			mailSender.send(message);
+			MailUtil mailUtil = new MailUtil();
+			mailUtil.sendMail(mailSender, mailMessage, contactData.getEmail(), contactData.getName(), contactData.getMessage());
 			return setView(SUCCESS);
 		}
 	}
