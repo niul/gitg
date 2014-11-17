@@ -2,23 +2,23 @@
 
       <div id="content">
         <div class="content_item">
-          <h2>Latest Projects</h2>
-            <div class="content_container">       
-			  <h3>Example 1</h3>
-			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
-            </div><!--close content_container-->
-            <div class="content_container">			  
-			  <h3>Example 2</h3>
-			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
-			</div><!--close content_container-->
-            <div class="content_container">       
-			  <h3>Example 1</h3>
-			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
-            </div><!--close content_container-->
-            <div class="content_container">			  
-			  <h3>Example 2</h3>
-			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien vel orci posuere tristique quis vitae nisi. Sed porta venenatis auctor. Fusce iaculis ligula odio.</p>
+          <h2><f:message key="projects.title"/></h2>
+			<div class="content_container">
+			  <h3><f:message key="projects.1.name"/></h3>
+			  <p><f:message key="projects.1.descr"/></p>
+			</div>
+            <div class="content_container">
+			  <h3><f:message key="projects.2.name"/></h3>
+			  <p><f:message key="projects.2.descr"/></p>
+			</div> 
+			<div class="content_container">
+			  <h3><f:message key="projects.3.name"/></h3>
+			  <p><f:message key="projects.3.descr"/></p>
+			</div>
+            <div class="content_container">
+			  <h3><f:message key="projects.4.name"/></h3>
+			  <p><f:message key="projects.4.descr"/></p>
 			</div>
 	    </div>
-      </div>
+	  </div>
 	</div>

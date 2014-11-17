@@ -2,18 +2,18 @@
 
 	  <div id="content">
         <div class="content_item">
-          <h2>Our Work</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ullamcorper, massa eu iaculis imperdiet, turpis nunc aliquam augue, eget condimentum lectus velit vitae urna. Curabitur eu feugiat erat. Nam et arcu sit amet magna facilisis accumsan vel nec mauris. Vivamus interdum adipiscing molestie. Vestibulum sollicitudin massa eget turpis cursus eget ullamcorper odio pharetra. Sed dictum lacus sed erat molestie id aliquet enim vestibulum.</p>
+          <h2><f:message key="ourwork.title"/></h2>
+			<p><f:message key="ourwork.section.main"/></p>
 		    <div class="content_container">
-		      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.</p>
+		      <p><f:message key="ourwork.section.left"/></p>
 		    	<div class="button_small">
-		        <a href="#">Read more</a>
+		        <a href="#"><f:message key="ourwork.section.more"/></a>
 		      </div><!--close button_small-->
 		    </div><!--close content_container-->
             <div class="content_container">
-		      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim. Aliquam facilisis neque non nunc posuere eget volutpat metus tincidunt.</p>          
+		      <p><f:message key="ourwork.section.right"/></p>          
 		    	<div class="button_small">
-		        <a href="#">Read more</a>
+		        <a href="#"><f:message key="ourwork.section.more"/></a>
 		        </div>
 		    </div>			
 		</div>

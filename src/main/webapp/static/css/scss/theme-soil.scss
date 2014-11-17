@@ -1,31 +1,24 @@
 $hi-gradient-color: #496440;
 $lo-gradient-color: #233A1B;
 
-body
-{ font: normal 85% Arial, Helvetica, sans-serif;
+body { 
+  font: normal 85% Arial, Helvetica, sans-serif;
   background: #676767 url(../images/background_soil.jpg) repeat;
   color: #000;
 }
 
-.theme_gradient
- {  
+.theme_gradient {
   background: $lo-gradient-color;
   background: -moz-linear-gradient($hi-gradient-color, $lo-gradient-color);
   background: -o-linear-gradient($hi-gradient-color, $lo-gradient-color);
   background: -webkit-linear-gradient($hi-gradient-color, $lo-gradient-color);
 }
 
-#content_green
-{
-  width: 960px;
-  height: 110px;
-  text-align: center;
-  border-radius: 0px 0px 15px 15px;
-  -moz-border-radius: 0px 0px 15px 15px;
-  -webkit-border: 0px 0px 15px 15px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+.theme_gradient_reverse {  
+  background: $hi-gradient-color;
+  background: -moz-linear-gradient($lo-gradient-color, $hi-gradient-color);
+  background: -o-linear-gradient($lo-gradient-color, $hi-gradient-color);
+  background: -webkit-linear-gradient($lo-gradient-color, $hi-gradient-color);
 }
 
 #menubar {
@@ -42,11 +35,8 @@ body
 }
 
 .menu_selected {
+	@extend .theme_gradient_reverse;
 	color: #FFF;
-  	background: $hi-gradient-color;
-  	background: -moz-linear-gradient($lo-gradient-color, $hi-gradient-color);
-  	background: -o-linear-gradient($lo-gradient-color, $hi-gradient-color);
-  	background: -webkit-linear-gradient($lo-gradient-color, $hi-gradient-color);
   	text-shadow: none;
 }
 
@@ -57,18 +47,3 @@ ul#menu li.current a {
 ul#menu li:hover a { 
 	@extend .menu_selected;
 }
-
-.sidebar h2
-{ padding: 5px 0 0 10px;
-  font: normal 140% Arial, Helvetica, sans-serif;
-  height: 30px;
-  text-shadow: 0px -1px 0px #000;
-  color: #fff;
-} 
-
- .button_small
-{ font: normal 110% Arial, Helvetica, sans-serif;
-  height: 15px;
-  width: 90px;
-  padding: 5px 5px 10px 7px;
- }

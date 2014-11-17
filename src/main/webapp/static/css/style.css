@@ -162,6 +162,14 @@ ul#menu li a {
   margin-bottom: 10px;
 }
 
+.sidebar h2 {
+  padding: 5px 0 0 10px;
+  font: normal 140% Arial, Helvetica, sans-serif;
+  height: 30px;
+  text-shadow: 0px -1px 0px black;
+  color: #fff;
+}
+
 .sidebar_item {
   font: normal 100% Arial, Helvetica, sans-serif;
   width: 215px;
@@ -171,6 +179,18 @@ ul#menu li a {
   width: 680px;
   margin-bottom: 20px;
   float: left;
+}
+
+#content_green {
+  width: 960px;
+  height: 110px;
+  text-align: center;
+  border-radius: 0px 0px 15px 15px;
+  -moz-border-radius: 0px 0px 15px 15px;
+  -webkit-border: 0px 0px 15px 15px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
 }
 
 .content_item {
@@ -259,6 +279,13 @@ ul#menu li a {
 
 .readmore a {
   color: #1D1D1D;
+}
+
+.button_small {
+  font: normal 110% Arial, Helvetica, sans-serif;
+  height: 15px;
+  width: 90px;
+  padding: 5px 5px 10px 7px;
 }
 
 .button_small a {
