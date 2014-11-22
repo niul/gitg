@@ -7,10 +7,9 @@
        <h4><f:message key="footer.contact"/></h4>
 	    <p>
 			<b><f:message key="footer.phone"/>:</b> <f:message key="footer.phone.value"/>
-			<br>
+			<br/>
 			<b><f:message key="footer.email"/>:</b> <f:message key="footer.email.value"/>
 		</p>
 	  </div> 
 	  <br style="clear:both"/>
     </div>
-  </div>
