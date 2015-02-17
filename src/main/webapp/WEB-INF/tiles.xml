@@ -57,8 +57,8 @@
         <put-attribute name="content" value="/WEB-INF/views/content/contact.jsp"/>
     </definition>
 
-    <definition name="success"  extends="main">
-        <put-attribute name="content" value="/WEB-INF/views/content/success.jsp"/>
+    <definition name="contact_success"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/contact_success.jsp"/>
     </definition>
 	
 	<definition name="page_not_found"  extends="main">

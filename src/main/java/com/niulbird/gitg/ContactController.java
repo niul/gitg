@@ -23,7 +23,7 @@ public class ContactController {
 	private static final Logger log = Logger.getLogger(ContactController.class);
 	
 	private static final String CONTACT = "contact";
-	private static final String SUCCESS = "success";
+	private static final String SUCCESS = "contact_success";
 	private static final String PAGE = "page";
 	
 	@Autowired

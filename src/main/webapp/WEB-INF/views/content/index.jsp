@@ -8,7 +8,7 @@
 		<div class="content_container">
 			<p><f:message key="index.section.left"/>.</p>
 			<div class="button_small theme_gradient all_round_corner">
-				<a href="#">Read more</a>
+				<a href="services.html">Read more</a>
 			</div>
 			<!--close button_small-->
 		</div>
@@ -16,7 +16,7 @@
 		<div class="content_container">
 			<p><f:message key="index.section.right"/>.</p>
 			<div class="button_small theme_gradient all_round_corner">
-				<a href="#">Read more</a>
+				<a href="about.html">Read more</a>
 			</div>
 		</div>
 	</div>
