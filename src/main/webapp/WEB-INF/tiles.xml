@@ -17,16 +17,40 @@
         <put-attribute name="content" value="/WEB-INF/views/content/index.jsp"/>
     </definition>
 
-    <definition name="ourwork"  extends="main">
-        <put-attribute name="content" value="/WEB-INF/views/content/ourwork.jsp"/>
+    <definition name="services"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/services.jsp"/>
     </definition>
 
-    <definition name="testimonials"  extends="main">
-        <put-attribute name="content" value="/WEB-INF/views/content/testimonials.jsp"/>
+    <definition name="about"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/about.jsp"/>
     </definition>
 
-    <definition name="projects"  extends="main">
-        <put-attribute name="content" value="/WEB-INF/views/content/projects.jsp"/>
+    <definition name="resources"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/resources.jsp"/>
+    </definition>
+
+    <definition name="design"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/design.jsp"/>
+    </definition>
+
+    <definition name="renovation"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/renovation.jsp"/>
+    </definition>
+
+    <definition name="maintenance"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/maintenance.jsp"/>
+    </definition>
+
+    <definition name="clean_up"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/clean_up.jsp"/>
+    </definition>
+
+    <definition name="kids_gardens"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/kids_gardens.jsp"/>
+    </definition>
+
+    <definition name="kids_workshops"  extends="main">
+        <put-attribute name="content" value="/WEB-INF/views/content/kids_workshops.jsp"/>
     </definition>
 
     <definition name="contact"  extends="main">
