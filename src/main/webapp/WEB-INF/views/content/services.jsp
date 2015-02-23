@@ -4,6 +4,7 @@
 	    <header>
           <h2><f:message key="services.title"/></h2>
 		</header>
+          <span class="image featured"><img src="static/images/soil_leaves_services.jpg" alt="" /></span>
 		  <p><f:message key="services.section.main"/></p>
 			<ul class="links">
 			  <li><a href="design.html"><f:message key="services.section.main.b1"/></a></li>

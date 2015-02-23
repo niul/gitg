@@ -4,7 +4,7 @@
 	    <header>
           <h2><f:message key="cleanup.title"/></h2>
         </header>
-         <span class="image featured"><img src="static/images/soil_leaves_cleanup.jpg" alt="" /></span>
+         <span class="image featured"><img src="static/images/autumn_leaves_cleanup.jpg" alt="" /></span>
 		  <p><f:message key="cleanup.section.main.p1"/></p>
 		  <p><f:message key="cleanup.section.main.p2"/></p>
 		  <ul class="default">
