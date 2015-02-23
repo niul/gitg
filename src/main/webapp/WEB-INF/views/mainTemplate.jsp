@@ -18,6 +18,7 @@
 			<link rel="stylesheet" href="static/css/style-wide.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="static/css/ie/v8.css" /><![endif]-->
+		<link rel="shortcut icon" href="static/images/leaf.ico">
 	</head>
 	<body>
 		<tiles:insertAttribute name="header"/>
