@@ -3,65 +3,72 @@
 "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
 
-    <!-- views -->
-    <definition name="main" template="/WEB-INF/views/main.jsp">
+    <!-- Main Page -->
+    <definition name="mainTemplate" template="/WEB-INF/views/mainTemplate.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/includes/header.jsp" />
+        <put-attribute name="banner" value="/WEB-INF/views/includes/banner.jsp" />
+        <put-attribute name="content"  value="content" />
+        <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp" />
+    </definition>
+    
+    <!-- Left Panel -->
+    <definition name="leftPanelTemplate" template="/WEB-INF/views/leftPanelTemplate.jsp">
         <put-attribute name="header" value="/WEB-INF/views/includes/header.jsp" />
         <put-attribute name="leftPanel" value="/WEB-INF/views/includes/leftPanel.jsp" />
-        <put-attribute name="slideshow" value="/WEB-INF/views/includes/slideshow.jsp" />
         <put-attribute name="content"  value="content" />
         <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp" />
     </definition>
 
     <!-- application -->
-    <definition name="home"  extends="main">
+    <definition name="home"  extends="mainTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/index.jsp"/>
     </definition>
 
-    <definition name="services"  extends="main">
+    <definition name="services"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/services.jsp"/>
     </definition>
 
-    <definition name="about"  extends="main">
+    <definition name="about"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/about.jsp"/>
     </definition>
 
-    <definition name="resources"  extends="main">
+    <definition name="resources"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/resources.jsp"/>
     </definition>
 
-    <definition name="design"  extends="main">
+    <definition name="design"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/design.jsp"/>
     </definition>
 
-    <definition name="renovation"  extends="main">
+    <definition name="renovation"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/renovation.jsp"/>
     </definition>
 
-    <definition name="maintenance"  extends="main">
+    <definition name="maintenance"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/maintenance.jsp"/>
     </definition>
 
-    <definition name="clean_up"  extends="main">
+    <definition name="clean_up"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/clean_up.jsp"/>
     </definition>
 
-    <definition name="kids_gardens"  extends="main">
+    <definition name="kids_gardens"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/kids_gardens.jsp"/>
     </definition>
 
-    <definition name="kids_workshops"  extends="main">
+    <definition name="kids_workshops"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/kids_workshops.jsp"/>
     </definition>
 
-    <definition name="contact"  extends="main">
+    <definition name="contact"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/contact.jsp"/>
     </definition>
 
-    <definition name="contact_success"  extends="main">
+    <definition name="contact_success"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/contact_success.jsp"/>
     </definition>
 	
-	<definition name="page_not_found"  extends="main">
+	<definition name="page_not_found"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/page_not_found.jsp"/>
     </definition>
 

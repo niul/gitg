@@ -1,10 +1,11 @@
 package com.niulbird.gitg;
 
 import org.apache.log4j.Logger;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.niulbird.gitg.command.ContactData;
 
 @Controller
 public class UIController {
@@ -83,6 +84,7 @@ public class UIController {
 		
 		mav.setViewName(pageName);
 		mav.addObject(PAGE, pageName);
+		mav.addObject("contactData", new ContactData());
 		
 		log.debug("Setting view: " + pageName);
 		

@@ -1,23 +1,33 @@
 <%@ include file="/WEB-INF/views/taglibs.jsp"%>
 
-<div id="content">
-	<div class="content_item">
-		<h1><f:message key="index.title"/></h1>
-		<p><f:message key="index.section.main"/>
-		</p>
-		<div class="content_container">
-			<p><f:message key="index.section.left"/>.</p>
-			<div class="button_small theme_gradient all_round_corner">
-				<a href="services.html">Read more</a>
-			</div>
-			<!--close button_small-->
+<!-- Gigantic Heading -->
+<section class="wrapper style2">
+  <div class="container">
+    <header class="major">
+	  <h2><f:message key="index.title"/></h2>
+	  <p><f:message key="index.section.main"/></p>
+	</header>
+  </div>
+</section>
+
+<!-- Highlights -->
+<section class="wrapper style1">
+  <div class="container">
+    <div class="row 200%">
+	  <section class="6u 12u(narrower)">
+		<div class="box highlight">
+		    <i class="icon major fa-leaf"></i>
+		    <h3><a href="services.html"><f:message key="index.section.left.title"/></a></h3>
+			<p><f:message key="index.section.left.description"/></p>
 		</div>
-		<!--close content_container-->
-		<div class="content_container">
-			<p><f:message key="index.section.right"/>.</p>
-			<div class="button_small theme_gradient all_round_corner">
-				<a href="about.html">Read more</a>
-			</div>
+	  </section>
+	  <section class="6u 12u(narrower)">
+		<div class="box highlight">
+		    <i class="icon major fa-info"></i>
+		    <h3><a href="about.html"><f:message key="index.section.right.title"/></a></h3>
+			<p><f:message key="index.section.right.description"/></p>
 		</div>
+	  </section>
 	</div>
-</div>
+  </div>
+</section>
