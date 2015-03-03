@@ -14,14 +14,21 @@
 <section class="wrapper style1">
   <div class="container">
     <div class="row 200%">
-	  <section class="6u 12u(narrower)">
+	  <section class="4u 12u(narrower)">
 		<div class="box highlight">
 		    <i class="icon major fa-leaf"></i>
 		    <h3><a href="services.html"><f:message key="index.section.left.title"/></a></h3>
 			<p><f:message key="index.section.left.description"/></p>
 		</div>
 	  </section>
-	  <section class="6u 12u(narrower)">
+	  <section class="4u 12u(narrower)">
+		<div class="box highlight">
+		    <i class="icon major fa-rss"></i>
+		    <h3><a href="news.html"><f:message key="index.section.middle.title"/></a></h3>
+			<p><f:message key="index.section.middle.description"/></p>
+		</div>
+	  </section>
+	  <section class="4u 12u(narrower)">
 		<div class="box highlight">
 		    <i class="icon major fa-info"></i>
 		    <h3><a href="about.html"><f:message key="index.section.right.title"/></a></h3>
