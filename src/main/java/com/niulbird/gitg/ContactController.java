@@ -1,5 +1,7 @@
 package com.niulbird.gitg;
 
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 
 import javax.validation.Valid;
@@ -17,14 +19,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.niulbird.gitg.command.ContactData;
 import com.niulbird.gitg.util.MailUtil;
+import com.niulbird.gitg.wordpress.WordPressDao;
+import com.niulbird.gitg.wordpress.dao.Post;
 
 @Controller
-public class ContactController {
+public class ContactController extends BaseController {
 	private static final Logger log = Logger.getLogger(ContactController.class);
 	
 	private static final String CONTACT = "contact";
 	private static final String SUCCESS = "contact_success";
 	private static final String PAGE = "page";
+
+	@Autowired
+	private WordPressDao wordPressDao;
 	
 	@Autowired
 	private MessageSource messageSource;
@@ -62,6 +69,12 @@ public class ContactController {
 		
 		mav.setViewName(pageName);
 		mav.addObject(PAGE, pageName);
+		
+		ArrayList<Post> posts = wordPressDao.getAllPosts();
+		mav.addObject("posts", posts);
+		mav.addObject("menuPosts", posts.subList(0,
+				(posts.size() < Integer.parseInt(numLeftPosts)) ? posts.size()
+						: Integer.parseInt(numLeftPosts)));
 		
 		log.debug("Setting view: " + pageName);
 		

@@ -28,6 +28,14 @@
         <put-attribute name="content" value="/WEB-INF/views/content/services.jsp"/>
     </definition>
 
+    <definition name="news"  extends="leftPanelTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/content/news.jsp"/>
+    </definition>
+
+    <definition name="post"  extends="leftPanelTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/content/post.jsp"/>
+    </definition>
+    
     <definition name="about"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/about.jsp"/>
     </definition>

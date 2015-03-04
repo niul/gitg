@@ -20,6 +20,8 @@
     <!--Enables AspectJ auto-proxying -->
     <aop:aspectj-autoproxy/>
 
+  	<context:property-placeholder location="classpath:global.properties" />
+  	
     <!-- Tiles support -->
     <bean id="tilesConfigurer"
           class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
