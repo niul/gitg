@@ -1,12 +1,18 @@
 package com.niulbird.gitg.wordpress.dao;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Post {
 	String id;
-	String createDate;
+	Date createDate;
 	String title;
 	String excerpt;
 	String content;
 	String url;
+	Author author;
+	ArrayList<Category> categories = new ArrayList<Category>();
+	ArrayList<Tag> tags = new ArrayList<Tag>();
 
 	public String getId() {
 		return id;
@@ -16,11 +22,11 @@ public class Post {
 		this.id = id;
 	}
 	
-	public String getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 	
-	public void setCreateDate(String createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 	
@@ -55,5 +61,36 @@ public class Post {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
+	public ArrayList<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(ArrayList<Category> categories) {
+		this.categories = categories;
+	}
 	
+	public Author getAuthor() {
+		return this.author;
+	}
+	
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+
+	public ArrayList<Tag> getTags() {
+		return tags;
+	}
+
+	public void setSlugs(ArrayList<Tag> tags) {
+		this.tags = tags;
+	}
+	
+	public void addCategory(Category category) {
+		this.categories.add(category);
+	}
+	
+	public void addTag(Tag tag) {
+		this.tags.add(tag);
+	}
 }

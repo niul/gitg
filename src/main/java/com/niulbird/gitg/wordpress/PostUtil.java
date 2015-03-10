@@ -1,21 +1,70 @@
 package com.niulbird.gitg.wordpress;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.niulbird.gitg.util.ISO8601DateParser;
+import com.niulbird.gitg.wordpress.dao.Author;
+import com.niulbird.gitg.wordpress.dao.Category;
 import com.niulbird.gitg.wordpress.dao.Post;
+import com.niulbird.gitg.wordpress.dao.Tag;
 
 public class PostUtil {
+	private static final Logger log = Logger.getLogger(PostUtil.class);
 
 	public static Post getPost(JSONObject jsonObject) {
 		Post post = new Post();
 		post.setId(Integer.toString(jsonObject.getInt("ID")));
-		post.setCreateDate(jsonObject.getString("date"));
 		post.setTitle(jsonObject.getString("title"));
 		post.setExcerpt(jsonObject.getString("excerpt").replaceAll("\\<.*?\\>", ""));
 		post.setContent(jsonObject.getString("content"));
 		post.setUrl(jsonObject.getString("URL"));
+		
+		// Get Author
+		JSONObject jsonAuthor = jsonObject.getJSONObject("author");
+		Author author = new Author();
+		author.setId(Integer.toString(jsonAuthor.getInt("ID")));
+		author.setName(jsonAuthor.getString("name"));
+		author.setUrl(jsonAuthor.getString("URL"));
+		post.setAuthor(author);
+		
+		// Get Categories
+		JSONObject categories = jsonObject.getJSONObject("categories");
+		String[] categoryNames = JSONObject.getNames(categories);
+		
+		for (int i=0; i < categoryNames.length; i++) {
+			JSONObject jsonCategory = categories.getJSONObject(categoryNames[i]);
+			Category category = new Category();
+			category.setId(Integer.toString(jsonCategory.getInt("ID")));
+			category.setName(jsonCategory.getString("name"));
+			category.setSlug(jsonCategory.getString("slug"));
+			post.addCategory(category);
+		}
+		
+		// Get Tags
+		JSONObject tags = jsonObject.getJSONObject("tags");
+		String[] tagNames = JSONObject.getNames(tags);
+		
+		for (int i=0; i < tagNames.length; i++) {
+			JSONObject jsonTag = tags.getJSONObject(tagNames[i]);
+			Tag tag = new Tag();
+			tag.setId(Integer.toString(jsonTag.getInt("ID")));
+			tag.setName(jsonTag.getString("name"));
+			tag.setSlug(jsonTag.getString("slug"));
+			post.addTag(tag);
+		}
+		
+		try {
+			post.setCreateDate(ISO8601DateParser.parse(jsonObject.getString("date")));
+		} catch (JSONException je) {
+			log.error("Error parsing date: " + je.getMessage(), je);
+		} catch (ParseException pe) {
+			log.error("Error parsing date: " + pe.getMessage(), pe);
+		}
 		
 		return post;
 	}

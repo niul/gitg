@@ -95,7 +95,7 @@
 	sup {
 		font-size: 0.8em;
 		position: relative;
-		top: -0.5em;
+		top: -2.0em;
 	}
 
 	hr {
@@ -113,6 +113,7 @@
 	section, article {
 		&.special {
 			text-align: center;
+			margin-bottom: 2.0em;
 		}
 	}
 
