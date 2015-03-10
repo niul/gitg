@@ -30,9 +30,11 @@ public class NewsController extends BaseController {
 		
 		mav.setViewName(NEWS);
 		mav.addObject(PAGE, NEWS);
-		
+
 		ArrayList<Post> posts = wordPressDao.getAllPosts();
+		ArrayList<Post> stickyItems = wordPressDao.getStickyItems();
 		mav.addObject("posts", posts);
+		mav.addObject("stickyItems", stickyItems);
 		mav.addObject("menuPosts", posts.subList(0,
 				(posts.size() < Integer.parseInt(numLeftPosts)) ? posts.size()
 						: Integer.parseInt(numLeftPosts)));
@@ -53,9 +55,11 @@ public class NewsController extends BaseController {
 		mav.setViewName(POST);
 		mav.addObject(PAGE, POST);
 		mav.addObject("post", post);
-		
+
 		ArrayList<Post> posts = wordPressDao.getAllPosts();
+		ArrayList<Post> stickyItems = wordPressDao.getStickyItems();
 		mav.addObject("posts", posts);
+		mav.addObject("stickyItems", stickyItems);
 		mav.addObject("menuPosts", posts.subList(0,
 				(posts.size() < Integer.parseInt(numLeftPosts)) ? posts.size()
 						: Integer.parseInt(numLeftPosts)));
@@ -65,5 +69,13 @@ public class NewsController extends BaseController {
 		log.debug("Setting view: " + PAGE);
 		
 		return mav;
+	}
+	
+
+	@RequestMapping(value = "/refreshCache.html")
+	public ModelAndView refreshCache() {
+		wordPressDao.clearAllCache();
+		
+		return news();
 	}
 }

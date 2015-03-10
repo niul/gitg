@@ -46,7 +46,7 @@
 	  </div>
 	  <!-- Icons -->
 	  <ul class="icons">
-		<li><a href="#" class="icon fa-wordpress"><span class="label">WordPress</span></a></li>
+		<li><a href="<f:message key='footer.social.wordpress.url'/>" class="icon fa-wordpress" target="_blank"><span class="label">WordPress</span></a></li>
 		<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 		<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 		<li><a href="#" class="icon fa-pinterest"><span class="label">GitHub</span></a></li>
@@ -54,10 +54,12 @@
 		<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
 	  </ul>
 
+	  <jsp:useBean id="now" class="java.util.Date" />
+	  <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 	  <!-- Copyright -->
 	  <div class="copyright">
 	    <ul class="menu">
-		  <li>&copy; <f:message key="footer.copyright"/></li><li><f:message key="footer.design"/></li>
+		  <li>&copy; ${year} <f:message key="footer.copyright"/></li><li><f:message key="footer.design"/></li>
 		</ul>
 	 </div>
     </div>

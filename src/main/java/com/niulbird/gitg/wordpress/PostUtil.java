@@ -11,6 +11,7 @@ public class PostUtil {
 	public static Post getPost(JSONObject jsonObject) {
 		Post post = new Post();
 		post.setId(Integer.toString(jsonObject.getInt("ID")));
+		post.setCreateDate(jsonObject.getString("date"));
 		post.setTitle(jsonObject.getString("title"));
 		post.setExcerpt(jsonObject.getString("excerpt").replaceAll("\\<.*?\\>", ""));
 		post.setContent(jsonObject.getString("content"));

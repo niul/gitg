@@ -2,6 +2,7 @@ package com.niulbird.gitg.wordpress.dao;
 
 public class Post {
 	String id;
+	String createDate;
 	String title;
 	String excerpt;
 	String content;
@@ -13,6 +14,14 @@ public class Post {
 	
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public String getCreateDate() {
+		return createDate;
+	}
+	
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
 	}
 	
 	public String getTitle() {

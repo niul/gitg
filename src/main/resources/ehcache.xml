@@ -9,6 +9,11 @@
     	eternal="false" 
     	overflowToDisk="false" 
     	timeToLiveSeconds="3600"/>
+    <cache name="stickyItemsCache" 
+    	maxElementsInMemory="1" 
+    	eternal="false" 
+    	overflowToDisk="false" 
+    	timeToLiveSeconds="3600"/>
     <cache name="postCache" 
     	maxElementsInMemory="10" 
     	eternal="false" 

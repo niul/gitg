@@ -49,11 +49,11 @@
 	      </c:otherwise>
 	    </c:choose>
 	    <c:choose>
-	      <c:when test="${page=='contact'}">
-	        <li class="current"><a href="contact.html"><f:message key="menu.item4"/></a></li>
+	      <c:when test="${page=='news'}">
+	        <li class="current"><a href="news.html"><f:message key="menu.item4"/></a></li>
 	      </c:when>
 	      <c:otherwise>
-	        <li><a href="contact.html"><f:message key="menu.item4"/></a></li>
+	        <li><a href="news.html"><f:message key="menu.item4"/></a></li>
 	      </c:otherwise>
 	    </c:choose>
 	    <c:choose>

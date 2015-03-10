@@ -95,7 +95,9 @@ public class UIController extends BaseController {
 		mav.addObject("contactData", new ContactData());
 		
 		ArrayList<Post> posts = wordPressDao.getAllPosts();
+		ArrayList<Post> stickyItems = wordPressDao.getStickyItems();
 		mav.addObject("posts", posts);
+		mav.addObject("stickyItems", stickyItems);
 		mav.addObject("menuPosts", posts.subList(0,
 				(posts.size() < Integer.parseInt(numLeftPosts)) ? posts.size()
 						: Integer.parseInt(numLeftPosts)));

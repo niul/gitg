@@ -11,4 +11,8 @@ public interface WordPressDao {
 	public ArrayList<Post> getPosts(int number);
 
 	public ArrayList<Post> getAllPosts();
+	
+	public ArrayList<Post> getStickyItems();
+	
+	public void clearAllCache();
 }
