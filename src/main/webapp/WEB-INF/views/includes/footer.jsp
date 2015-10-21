@@ -49,7 +49,7 @@
 		<li><a href="<f:message key='footer.social.wordpress.url'/>" class="icon fa-wordpress" target="_blank"><span class="label">WordPress</span></a></li>
 		<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 		<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-		<li><a href="#" class="icon fa-pinterest"><span class="label">GitHub</span></a></li>
+		<li><a href="<f:message key='footer.social.pinterest.url'/>" class="icon fa-pinterest" target="_blank"><span class="label">Pinterest</span></a></li>
 		<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
 		<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
 	  </ul>
