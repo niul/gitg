@@ -10,6 +10,7 @@
       	
       	<script type="text/javascript">
 			var CONTEXT_ROOT = '<%= request.getContextPath() %>';
+			var URL = '${url}';
 		</script>
       	
 		<c:if test="${empty title}">

@@ -85,7 +85,7 @@
 			$("body").floatingSocialShare({
 				buttons: ["facebook", "twitter", "pinterest", "google-plus", "wordpress"],
 		        text: "share with: ",
-		        url: "http://www.growinginthegarden.ca"
+		        url: URL
 			})
 
 	});
