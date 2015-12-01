@@ -5,6 +5,7 @@
 
     <!-- Main Page -->
     <definition name="mainTemplate" template="/WEB-INF/views/mainTemplate.jsp">
+        <put-attribute name="head" value="/WEB-INF/views/includes/head.jsp" />
         <put-attribute name="header" value="/WEB-INF/views/includes/header.jsp" />
         <put-attribute name="banner" value="/WEB-INF/views/includes/banner.jsp" />
         <put-attribute name="content"  value="content" />
@@ -13,6 +14,7 @@
     
     <!-- Left Panel -->
     <definition name="leftPanelTemplate" template="/WEB-INF/views/leftPanelTemplate.jsp">
+        <put-attribute name="head" value="/WEB-INF/views/includes/head.jsp" />
         <put-attribute name="header" value="/WEB-INF/views/includes/header.jsp" />
         <put-attribute name="leftPanel" value="/WEB-INF/views/includes/leftPanel.jsp" />
         <put-attribute name="content"  value="content" />

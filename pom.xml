@@ -8,7 +8,7 @@
 	<artifactId>gitg</artifactId>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.1.1.RELEASE</spring.version>
+		<spring.version>4.2.3.RELEASE</spring.version>
 	</properties>
 	<prerequisites>
 		<maven>3.1.0</maven>
@@ -156,6 +156,15 @@
 	</dependencies>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>com.samaxes.maven</groupId>
+					<artifactId>minify-maven-plugin</artifactId>
+					<version>1.7.4</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<!-- for hot reload of the web application -->
 		<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
 		<plugins>
@@ -194,28 +203,65 @@
 				</configuration>
 			</plugin>
 			<plugin>
-        		<groupId>org.jasig.maven</groupId>
-        		<artifactId>sass-maven-plugin</artifactId>
-        		<version>1.1.0</version>
+				<groupId>nl.geodienstencentrum.maven</groupId>
+				<artifactId>sass-maven-plugin</artifactId>
+				<version>2.13</version>
+				<executions>
+					<execution>
+						<id>package</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>update-stylesheets</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<resources>
+						<resource>
+							<source>
+								<directory>${basedir}/src/main/webapp/static/css/scss</directory>
+							</source>
+							<destination>${project.basedir}/src/main/webapp/static/css</destination>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+			<plugin>
+        		<groupId>com.samaxes.maven</groupId>
+        		<artifactId>minify-maven-plugin</artifactId>
+        		<version>1.7.4</version>
         		<executions>
-        			<execution>
-            			<id>package</id>
-            			<phase>prepare-package</phase>
-            			<goals>
-                			<goal>update-stylesheets</goal>
-            			</goals>
-        			</execution>
-    			</executions>
-        		<configuration>
-        			<resources>
-            			<resource>
-                			<source>
-                    			<directory>${basedir}/src/main/webapp/static/css/scss</directory>
-                			</source>
-                			<destination>${project.basedir}/src/main/webapp/static/css</destination>
-            			</resource>
-        			</resources>
-    			</configuration>
+          			<execution>
+            			<id>minify</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>minify</goal>
+						</goals>
+          			</execution>
+        		</executions>
+            	<configuration>
+            		<cssSourceDir>static/css</cssSourceDir>
+            		<cssTargetDir>static/css</cssTargetDir>
+              		<cssSourceIncludes>
+                		<cssSourceInclude>**/*.css</cssSourceInclude>
+              		</cssSourceIncludes>
+              		<cssSourceExcludes>
+                		<cssSourceExclude>**/*.min.css</cssSourceExclude>
+                		<cssSourceExclude>**/style*.css</cssSourceExclude>
+              		</cssSourceExcludes>
+            		<jsSourceDir>static/js</jsSourceDir>
+            		<jsTargetDir>static/js</jsTargetDir>
+              		<jsSourceIncludes>
+                		<jsSourceInclude>**/*.js</jsSourceInclude>
+              		</jsSourceIncludes>
+              		<jsSourceExcludes>
+                		<jsSourceExclude>**/*.min.js</jsSourceExclude>
+              		</jsSourceExcludes>
+              		<jsTargetDir>static/js</jsTargetDir>
+              		<skipMerge>true</skipMerge>
+              		<verbose>true</verbose>
+              		<webappTargetDir>${basedir}/src/main/webapp</webappTargetDir>
+            	</configuration>
       		</plugin>
 		</plugins>
 	</build>

@@ -9,13 +9,13 @@
 	skel.init({
 		reset: 'full',
 		breakpoints: {
-			global:		{ range: '*', href: 'static/css/style.css', containers: 1400, grid: { gutters: 50 } },
-			wide:		{ range: '-1680', href: 'static/css/style-wide.css', containers: 1200, grid: { gutters: 40 } },
-			normal:		{ range: '-1280', href: 'static/css/style-normal.css', containers: 960, grid: { gutters: 30 }, viewport: { scalable: false } },
-			narrow:		{ range: '-980', href: 'static/css/style-narrow.css', containers: '95%' },
-			narrower:	{ range: '-840', href: 'static/css/style-narrower.css', containers: '95%!'},
-			mobile:		{ range: '-736', href: 'static/css/style-mobile.css', containers: '90%!', grid: { gutters: 20 } },
-			mobilep:	{ range: '-480', href: 'static/css/style-mobilep.css', containers: '100%' }
+			global:		{ range: '*', href: CONTEXT_ROOT + '/static/css/style.css', containers: 1400, grid: { gutters: 50 } },
+			wide:		{ range: '-1680', href: CONTEXT_ROOT + '/static/css/style-wide.css', containers: 1200, grid: { gutters: 40 } },
+			normal:		{ range: '-1280', href: CONTEXT_ROOT + '/static/css/style-normal.css', containers: 960, grid: { gutters: 30 }, viewport: { scalable: false } },
+			narrow:		{ range: '-980', href: CONTEXT_ROOT + '/static/css/style-narrow.css', containers: '95%' },
+			narrower:	{ range: '-840', href: CONTEXT_ROOT + '/static/css/style-narrower.css', containers: '95%!'},
+			mobile:		{ range: '-736', href: CONTEXT_ROOT + '/static/css/style-mobile.css', containers: '90%!', grid: { gutters: 20 } },
+			mobilep:	{ range: '-480', href: CONTEXT_ROOT + '/static/css/style-mobilep.css', containers: '100%' }
 		},
 		plugins: {
 			layers: {
@@ -81,6 +81,12 @@
 				hoverDelay: 0,
 				alignment: 'center'
 			});
+			
+			$("body").floatingSocialShare({
+				buttons: ["facebook", "twitter", "pinterest", "google-plus", "wordpress"],
+		        text: "share with: ",
+		        url: "http://www.growinginthegarden.ca"
+			})
 
 	});
 

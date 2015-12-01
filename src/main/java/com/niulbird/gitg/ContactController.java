@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Controller;
@@ -32,9 +31,6 @@ public class ContactController extends BaseController {
 
 	@Autowired
 	private WordPressDao wordPressDao;
-	
-	@Autowired
-	private MessageSource messageSource;
 	
 	@Autowired
 	private JavaMailSenderImpl mailSender;

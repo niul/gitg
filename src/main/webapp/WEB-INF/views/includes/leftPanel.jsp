@@ -17,7 +17,7 @@
     <h3>${post.title}</h3>
     <p>${post.excerpt}</p>
     <footer>
-      <a href="post.html?id=${post.id}" class="button"><f:message key="panel.button.continue"/></a>
+      <a href='<c:url value="/post/${post.id}"/>' class="button"><f:message key="panel.button.continue"/></a>
     </footer>
   </section>
   </c:forEach>

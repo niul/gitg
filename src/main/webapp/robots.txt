@@ -1,0 +1,3 @@
+Sitemap: http://www.growinginthegarden.ca/sitemap.xml
+User-Agent: *
+Disallow: /static
