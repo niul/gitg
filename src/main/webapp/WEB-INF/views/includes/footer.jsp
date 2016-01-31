@@ -48,10 +48,10 @@
 	  <ul class="icons">
 		<li><a href="<f:message key='footer.social.wordpress.url'/>" class="icon fa-wordpress" target="_blank"><span class="label">WordPress</span></a></li>
 		<li><a href="<f:message key='footer.social.twitter.url'/>" class="icon fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
-		<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+		<li><a href="<f:message key='footer.social.facebook.url'/>" class="icon fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
 		<li><a href="<f:message key='footer.social.pinterest.url'/>" class="icon fa-pinterest" target="_blank"><span class="label">Pinterest</span></a></li>
 		<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-		<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+		<li><a href="<f:message key='footer.social.googleplus.url'/>" class="icon fa-google-plus" target="_blank"><span class="label">Google+</span></a></li>
 	  </ul>
 
 	  <jsp:useBean id="now" class="java.util.Date" />
