@@ -12,6 +12,14 @@
         <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp" />
     </definition>
     
+    <!-- Single Panel -->
+    <definition name="singlePanelTemplate" template="/WEB-INF/views/singlePanelTemplate.jsp">
+        <put-attribute name="head" value="/WEB-INF/views/includes/head.jsp" />
+        <put-attribute name="header" value="/WEB-INF/views/includes/header.jsp" />
+        <put-attribute name="content"  value="content" />
+        <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp" />
+    </definition>
+    
     <!-- Left Panel -->
     <definition name="leftPanelTemplate" template="/WEB-INF/views/leftPanelTemplate.jsp">
         <put-attribute name="head" value="/WEB-INF/views/includes/head.jsp" />
@@ -30,7 +38,7 @@
         <put-attribute name="content" value="/WEB-INF/views/content/services.jsp"/>
     </definition>
 
-    <definition name="news"  extends="leftPanelTemplate">
+    <definition name="news"  extends="singlePanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/news.jsp"/>
     </definition>
 
