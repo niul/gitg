@@ -70,13 +70,20 @@ public class PostUtil {
 	}
 
 	public static ArrayList<Post> getPosts(JSONObject jsonObject) {
-		int postCount = jsonObject.getInt("found");
+		int postCount = jsonObject.getJSONArray("posts").length();
+		String previousId = "-1";
 		ArrayList<Post> posts = new ArrayList<Post>();
 		
 		for (int i = 0; i < postCount; i++) {
 			JSONObject jsonPost = jsonObject.getJSONArray("posts").getJSONObject(i);
 			Post post = getPost(jsonPost);
+			post.setPreviousId(previousId);
+			if (i > 0) {
+				posts.get(posts.size()-1).setNextId(post.getId());
+			}
 			posts.add(post);
+			
+			previousId = post.getId();
 		}
 		
 		return posts;

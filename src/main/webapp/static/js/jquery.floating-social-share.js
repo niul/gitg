@@ -112,7 +112,7 @@
             },
             "twitter": {
                 className: "twitter",
-                url:"https://twitter.com/home?status={url}"
+                url:"https://twitter.com/intent/tweet?text={title}&url={url}"
             },
             "wordpress": {
                 className: "wordpress",

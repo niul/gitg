@@ -5,6 +5,8 @@ import java.util.Date;
 
 public class Post {
 	String id;
+	String nextId;
+	String previousId;
 	Date createDate;
 	String title;
 	String excerpt;
@@ -20,6 +22,22 @@ public class Post {
 	
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public String getNextId() {
+		return nextId;
+	}
+	
+	public void setNextId(String nextId) {
+		this.nextId = nextId;
+	}
+	
+	public String getPreviousId() {
+		return previousId;
+	}
+	
+	public void setPreviousId(String previousId) {
+		this.previousId = previousId;
 	}
 	
 	public Date getCreateDate() {

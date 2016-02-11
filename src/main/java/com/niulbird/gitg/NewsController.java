@@ -52,14 +52,20 @@ public class NewsController extends BaseController {
 	public ModelAndView post(@PathVariable(value="id") int code) {
 		ModelAndView mav = new ModelAndView();
 
-		Post post = wordPressDao.getPost(code);
+		ArrayList<Post> posts = wordPressDao.getAllPosts();
+		Post post = null;
+		for (Post p : posts ) {
+			if (Integer.parseInt(p.getId()) == code) {
+				post = p;
+				break;
+			}
+		}
 		
 		mav.setViewName(POST);
 		mav.addObject(PAGE, POST);
 		mav.addObject(TITLE, post.getTitle());
 		mav.addObject("post", post);
 
-		ArrayList<Post> posts = wordPressDao.getAllPosts();
 		ArrayList<Post> stickyItems = wordPressDao.getStickyItems();
 		mav.addObject("posts", posts);
 		mav.addObject("stickyItems", stickyItems);
