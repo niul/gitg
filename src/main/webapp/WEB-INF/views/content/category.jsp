@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/views/taglibs.jsp" %>
 
 
-      <h2><f:message key="news.title"/></h2>
+      <h2>${title}</h2>
   
   	  <c:forEach var="post" items="${posts}">
 	  

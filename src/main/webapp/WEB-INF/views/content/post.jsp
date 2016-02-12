@@ -10,14 +10,14 @@
 		</header>
 		<sup><f:message key="news.posted.on"/>: ${formattedDate} | <f:message key="news.posted.in"/>
 		    <c:forEach var="category" items="${post.categories}" varStatus="loop">
-			  <a href="${post.author.url}/category/${category.slug}" target="_blank">${category.name}</a><c:if test="${!loop.last}">, </c:if>
+			  <a href='<c:url value="/category/${category.name}"/>'>${category.name}</a><c:if test="${!loop.last}">, </c:if>
 		    </c:forEach>
 		</sup>
 		${post.content}
 		<sup>
 		  <f:message key="news.posted.in"/>
 		  <c:forEach var="category" items="${post.categories}" varStatus="loop">
-			<a href="${post.author.url}/category/${category.slug}" target="_blank">${category.name}</a><c:if test="${!loop.last}">, </c:if>
+			<a href='<c:url value="/category/${category.name}"/>'>${category.name}</a><c:if test="${!loop.last}">, </c:if>
 		  </c:forEach> 
 		</sup>
 	  </article>

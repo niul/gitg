@@ -11,12 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.niulbird.gitg.command.ContactData;
 import com.niulbird.gitg.wordpress.WordPressDao;
+import com.niulbird.gitg.wordpress.dao.Category;
 import com.niulbird.gitg.wordpress.dao.Post;
 
 @Controller
 public class NewsController extends BaseController {
 	private static final Logger log = Logger.getLogger(NewsController.class);
 
+	private static final String CATEGORY = "category";
 	private static final String NEWS = "news";
 	private static final String PAGE = "page";
 	private static final String POST = "post";
@@ -34,12 +36,7 @@ public class NewsController extends BaseController {
 		mav.addObject(TITLE, messageSource.getMessage("news.title", null, null));
 
 		ArrayList<Post> posts = wordPressDao.getAllPosts();
-		ArrayList<Post> stickyItems = wordPressDao.getStickyItems();
 		mav.addObject("posts", posts);
-		mav.addObject("stickyItems", stickyItems);
-		mav.addObject("menuPosts", posts.subList(0,
-				(posts.size() < Integer.parseInt(numLeftPosts)) ? posts.size()
-						: Integer.parseInt(numLeftPosts)));
 		
 		mav.addObject("contactData", new ContactData());
 		
@@ -80,6 +77,31 @@ public class NewsController extends BaseController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/category/{name}")
+	public ModelAndView category(@PathVariable(value="name") String name) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(CATEGORY);
+		mav.addObject(PAGE, CATEGORY);
+		mav.addObject(TITLE, messageSource.getMessage("news.title", null, null) + " - " + name);
+
+		ArrayList<Post> posts = wordPressDao.getAllPosts();
+		ArrayList<Post> categoryPosts = new ArrayList<Post>();
+		for (Post post : posts ) {
+			for (Category category : post.getCategories()) {
+				if (category.getName().equalsIgnoreCase(name)) {
+					categoryPosts.add(post);
+				}
+			}
+		}
+
+		mav.addObject("posts", categoryPosts);
+		
+		mav.addObject("contactData", new ContactData());
+		
+		log.debug("Setting view: " + PAGE);
+		
+		return mav;
+	}
 
 	@RequestMapping(value = "/refreshCache.html")
 	public ModelAndView refreshCache() {

@@ -42,6 +42,10 @@
         <put-attribute name="content" value="/WEB-INF/views/content/news.jsp"/>
     </definition>
 
+    <definition name="category"  extends="singlePanelTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/content/category.jsp"/>
+    </definition>
+
     <definition name="post"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/post.jsp"/>
     </definition>
