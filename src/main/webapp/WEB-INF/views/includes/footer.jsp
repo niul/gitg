@@ -27,6 +27,9 @@
 			    </div>
 			  </div>
 			  <div class="row 50%">
+			  	<div class="g-recaptcha" data-sitekey="${recaptchaKey}"></div>
+			  </div>
+			  <div class="row 50%">
 			    <div class="12u">
 			      <ul class="actions">
 				    <li><input type="submit" class="button alt" value="<f:message key='contact.submit' />" /></li>
@@ -50,7 +53,7 @@
 		<li><a href="<f:message key='footer.social.twitter.url'/>" class="icon fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
 		<li><a href="<f:message key='footer.social.facebook.url'/>" class="icon fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
 		<li><a href="<f:message key='footer.social.pinterest.url'/>" class="icon fa-pinterest" target="_blank"><span class="label">Pinterest</span></a></li>
-		<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+		<li><a href="<f:message key='footer.social.instagram.url'/>" class="icon fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
 		<li><a href="<f:message key='footer.social.googleplus.url'/>" class="icon fa-google-plus" target="_blank"><span class="label">Google+</span></a></li>
 	  </ul>
 

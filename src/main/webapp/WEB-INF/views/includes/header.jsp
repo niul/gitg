@@ -57,11 +57,21 @@
 	      </c:otherwise>
 	    </c:choose>
 	    <c:choose>
-	      <c:when test="${page=='about'}">
-	        <li class="current"><a href='<c:url value="/about.html"/>'><f:message key="menu.item5"/></a></li>
+	      <c:when test="${(page=='about') || (page=='contact')}">
+	        <li class="current"><a href='<c:url value="/about.html"/>'><f:message key="menu.item5"/></a>
+	          <ul>
+			    <li><a href='<c:url value="/about.html"/>'><f:message key="index.section.right.title"/></a></li>
+			    <li><a href='<c:url value="/contact.html"/>'><f:message key="contact.title"/></a></li>
+	          </ul>
+	        </li>
 	      </c:when>
 	      <c:otherwise>
-	        <li><a href='<c:url value="/about.html"/>'><f:message key="menu.item5"/></a></li>
+	        <li><a href='<c:url value="/about.html"/>'><f:message key="menu.item5"/></a>
+	          <ul>
+			    <li><a href='<c:url value="/about.html"/>'><f:message key="index.section.right.title"/></a></li>
+			    <li><a href='<c:url value="/contact.html"/>'><f:message key="contact.title"/></a></li>
+	          </ul>
+	        </li>
 	      </c:otherwise>
 	    </c:choose>
         </ul>

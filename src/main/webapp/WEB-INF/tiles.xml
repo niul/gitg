@@ -28,6 +28,17 @@
         <put-attribute name="content"  value="content" />
         <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp" />
     </definition>
+    
+    <!-- Slicebox Left Panel -->
+    <definition name="sb_leftPanelTemplate" template="/WEB-INF/views/sb_leftPanelTemplate.jsp">
+        <put-attribute name="head" value="/WEB-INF/views/includes/head.jsp" />
+        <put-attribute name="sb_head" value="/WEB-INF/views/includes/slicebox/sb_head.jsp" />
+        <put-attribute name="header" value="/WEB-INF/views/includes/header.jsp" />
+        <put-attribute name="leftPanel" value="/WEB-INF/views/includes/leftPanel.jsp" />
+        <put-attribute name="content"  value="content" />
+        <put-attribute name="sb_footer" value="/WEB-INF/views/includes/slicebox/sb_footer.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp" />
+    </definition>
 
     <!-- application -->
     <definition name="home"  extends="mainTemplate">
@@ -80,6 +91,10 @@
 
     <definition name="kids_workshops"  extends="leftPanelTemplate">
         <put-attribute name="content" value="/WEB-INF/views/content/kids_workshops.jsp"/>
+    </definition>
+
+    <definition name="sample"  extends="sb_leftPanelTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/content/sample.jsp"/>
     </definition>
 
     <definition name="contact"  extends="leftPanelTemplate">

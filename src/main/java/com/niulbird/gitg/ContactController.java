@@ -1,9 +1,17 @@
 package com.niulbird.gitg;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import org.apache.log4j.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +22,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niulbird.gitg.command.ContactData;
@@ -38,6 +47,9 @@ public class ContactController extends BaseController {
 	@Autowired
 	private SimpleMailMessage mailMessage;
 	
+	@Autowired
+	Properties props;
+	
 	@RequestMapping(value = "/contact.html", method = RequestMethod.GET)
 	public ModelAndView contactView(@ModelAttribute("contactData") ContactData contactData) {
 		log.info("Entering contactView(): " + contactData.getName() + "|" 
@@ -47,11 +59,31 @@ public class ContactController extends BaseController {
 	
 	@RequestMapping(value = "/contact.html", method = RequestMethod.POST)
 	public ModelAndView contactPost(@Valid ContactData contactData,
-			BindingResult result) {
+			BindingResult result,
+			final @RequestParam(name = "g-recaptcha-response") String captchaResponse,
+			HttpServletRequest request) {
 		log.info("Entering contactPost(): " + contactData.getName() + "|" 
-				+ contactData.getEmail() + "|" + contactData.getMessage());
+				+ contactData.getEmail() + "|" + contactData.getMessage() + "|" + captchaResponse);
 		
-		if (result.hasErrors()) {
+		String remoteAddr = request.getRemoteAddr();
+		
+		JSONTokener tokener = null;
+		try {
+			tokener = new JSONTokener(new URL(props.getProperty("recaptcha.baseUrl") + 
+					"?secret=" + props.getProperty("recaptcha.secret") + 
+					"&response=" + captchaResponse + 
+					"&remoteip=" + remoteAddr).openStream());
+		} catch (JSONException  e) {
+			log.error("Error with Google Captch: " + e.getMessage(), e);
+		} catch (MalformedURLException e) {
+			log.error("Error with Google Captch: " + e.getMessage(), e);
+		} catch (IOException e) {
+			log.error("Error with Google Captch: " + e.getMessage(), e);
+		}
+		JSONObject jsonObject = new JSONObject(tokener);
+		log.debug("Google Captcha Response: " + jsonObject);
+		
+		if (result.hasErrors() || !jsonObject.getBoolean("success")) {
 			return setView(CONTACT);
 		} else {
 			MailUtil mailUtil = new MailUtil();
@@ -65,6 +97,7 @@ public class ContactController extends BaseController {
 		
 		mav.setViewName(pageName);
 		mav.addObject(PAGE, pageName);
+		mav.addObject("recaptchaKey", props.getProperty("recaptcha.public"));
 		
 		ArrayList<Post> posts = wordPressDao.getAllPosts();
 		ArrayList<Post> stickyItems = wordPressDao.getStickyItems();

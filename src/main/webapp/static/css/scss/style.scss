@@ -255,13 +255,40 @@
 				width: 100%;
 			}
 		}
+		
+		
+			
+		&:hover &.info {
+			opacity:0.75;
+			filter: alpha(opacity = 75);
+			transition:opacity 0.25s;
+			-moz-transition:opacity 0.25s;
+			-webkit-transition:opacity 0.25s;
+		}
+			
+		&.info {
+			background-color: #000;
+  			border-radius: 5px;
+  			bottom: 0;
+  			color: #fff;
+  			opacity: 0;
+  			filter: alpha(opacity = 0);
+  			margin: 0 0 0 0;
+  			position: absolute;
+  			width: 100%;
+  			z-index: 1000;
+  				
+  			h4, p {
+  				margin: 0 0 0 0;
+  				padding: 0 10px;
+  			}
+		}
 
 		&.featured {
 			display: block;
 			margin: 0 0 2em 0;
 
 			img {
-				display: block;
 				width: 100%;
 			}
 		}

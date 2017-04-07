@@ -28,6 +28,9 @@
 			  </div>
 			</div>
 			<div class="row 50%">
+			  	<div class="g-recaptcha" data-sitekey="${recaptchaKey}"></div>
+			</div>
+			<div class="row 50%">
 			  <div class="12u">
 			    <ul class="actions">
 			      <li><input type="submit" class="button alt" value="<f:message key='contact.submit' />" /></li>

@@ -1,6 +1,7 @@
 package com.niulbird.gitg;
 
 import java.util.ArrayList;
+import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class UIController extends BaseController {
 	private static final String KIDS_WORKSHOPS = "kids_workshops";
 	private static final String MAINTENANCE = "maintenance";
 	private static final String RENOVATION = "renovation";
+	private static final String SAMPLE = "sample";
 	private static final String SERVICES = "services";
 	private static final String PAGE = "page";
 	private static final String PAGE_NOT_FOUND = "page_not_found";
@@ -32,6 +34,9 @@ public class UIController extends BaseController {
 	
 	@Autowired
 	private WordPressDao wordPressDao;
+
+	@Autowired
+	Properties props;
 	
 	@RequestMapping(value = "/")
 	public ModelAndView root() {
@@ -88,6 +93,11 @@ public class UIController extends BaseController {
 		return setView(KIDS_WORKSHOPS, messageSource.getMessage("kids_workshop.title", null, null));
 	}
 	
+	@RequestMapping(value = "/sample.html")
+	public ModelAndView sample() {
+		return setView(SAMPLE, messageSource.getMessage("sample.title", null, null));
+	}
+	
 	@RequestMapping(value = "/404.html")
 	public ModelAndView pageNotFound() {
 		return setView(PAGE_NOT_FOUND, null);
@@ -100,6 +110,7 @@ public class UIController extends BaseController {
 		mav.addObject(PAGE, pageName);
 		mav.addObject(TITLE, title);
 		mav.addObject("contactData", new ContactData());
+		mav.addObject("recaptchaKey", props.getProperty("recaptcha.public"));
 		
 		ArrayList<Post> posts = wordPressDao.getAllPosts();
 		ArrayList<Post> stickyItems = wordPressDao.getStickyItems();

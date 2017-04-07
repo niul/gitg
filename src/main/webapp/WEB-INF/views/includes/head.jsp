@@ -62,6 +62,8 @@
 		<script src='<c:url value="/static/js/jquery.floating-social-share.min.js"/>'></script>
 		<script src='<c:url value="/static/js/init.min.js"/>'></script>
 		
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		
 		<link rel="stylesheet" href='<c:url value="/static/css/jquery.floating-social-share.min.css"/>' />
 		<noscript>
 			<link rel="stylesheet" href='<c:url value="/static/css/style.css"/>' />
