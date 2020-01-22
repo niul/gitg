@@ -7,7 +7,7 @@
             <p><f:message key="contact.description" /></p>
 			
 			<form:form action="${pageContext.request.contextPath}/contact.html" 
-				commandName="contactData" 
+				modelAttribute="contactData" 
 				method="post">
 			<div class="row 50%">
 			  <div class="6u 12u(mobilep)">

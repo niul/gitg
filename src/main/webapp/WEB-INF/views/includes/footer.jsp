@@ -6,7 +6,7 @@
 	      <section class="6u 12u(narrower)">
 		    <h3><f:message key="footer.getintouch" /></h3>
 			<form:form action="${pageContext.request.contextPath}/contact.html" 
-				commandName="contactData" 
+				modelAttribute="contactData" 
 				method="post">
 			  <div class="row 50%">
 				<div class="6u 12u(mobilep)">
