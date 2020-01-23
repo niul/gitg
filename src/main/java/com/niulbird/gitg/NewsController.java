@@ -2,7 +2,8 @@ package com.niulbird.gitg;
 
 import java.util.ArrayList;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +17,7 @@ import com.niulbird.gitg.wordpress.dao.Post;
 
 @Controller
 public class NewsController extends BaseController {
-	private static final Logger log = Logger.getLogger(NewsController.class);
+	private static final Logger log = LogManager.getLogger();
 
 	private static final String CATEGORY = "category";
 	private static final String NEWS = "news";

@@ -6,7 +6,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -32,7 +33,7 @@ import com.niulbird.gitg.wordpress.dao.Post;
 
 @Controller
 public class ContactController extends BaseController {
-	private static final Logger log = Logger.getLogger(ContactController.class);
+	private static final Logger log = LogManager.getLogger();
 	
 	private static final String CONTACT = "contact";
 	private static final String SUCCESS = "contact_success";

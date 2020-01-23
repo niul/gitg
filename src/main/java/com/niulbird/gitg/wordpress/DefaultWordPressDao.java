@@ -5,7 +5,8 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.springframework.cache.annotation.Cacheable;
@@ -17,7 +18,7 @@ import com.niulbird.gitg.wordpress.dao.Post;
 
 @Component
 public class DefaultWordPressDao  implements WordPressDao {
-	private static final Logger log = Logger.getLogger(DefaultWordPressDao.class);
+	private static final Logger log = LogManager.getLogger();
 	
 	private static String GET_STICKY_ITEMS = "/posts/?tag=sticky";
 	private static String GET_POST = "/posts/{0}";

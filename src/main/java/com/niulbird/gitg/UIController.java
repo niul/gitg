@@ -3,7 +3,8 @@ package com.niulbird.gitg;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import com.niulbird.gitg.wordpress.dao.Post;
 
 @Controller
 public class UIController extends BaseController {
-	private static final Logger log = Logger.getLogger(UIController.class);
+	private static final Logger log = LogManager.getLogger();
 
 	private static final String ABOUT = "about";
 	private static final String CLEAN_UP = "clean_up";

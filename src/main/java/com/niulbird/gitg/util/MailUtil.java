@@ -1,12 +1,13 @@
 package com.niulbird.gitg.util;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 public class MailUtil {
-	private final Logger log = Logger.getLogger(MailUtil.class);
+	private final Logger log = LogManager.getLogger();
 	
 	public boolean sendMail(JavaMailSenderImpl mailSender, 
 			SimpleMailMessage mailMessage, 

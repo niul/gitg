@@ -77,6 +77,7 @@
         <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
     		<property name="paramName" value="theme" />
 		</bean>
+        <bean id="logInterceptor" class="com.niulbird.gitg.interceptors.LogInterceptor"/>
     </mvc:interceptors>
     
     <!-- Spring Mail configuration -->
