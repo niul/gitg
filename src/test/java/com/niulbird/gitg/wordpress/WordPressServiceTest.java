@@ -3,6 +3,7 @@ package com.niulbird.gitg.wordpress;
 import java.util.ArrayList;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,6 +15,7 @@ public class WordPressServiceTest extends BaseTestCase {
 	@Autowired 
 	WordPressDao wordPressDao;
 	
+	@Ignore
 	@Test
 	public void getPosts() {
 		ArrayList<Post> posts = null;

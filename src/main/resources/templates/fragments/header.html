@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="header">
+    <div id="header">
+        <h1><a th:href="@{/index.html}" id="logo" th:text="#{menu.title}">Growing in the Garden</a></h1>
+        <nav id="nav">
+            <ul>
+                <li th:classappend="${page == 'home'} ? 'current'">
+                    <a th:href="@{/index.html}" th:text="#{menu.item1}">Home</a>
+                </li>
+                <li th:classappend="${page == 'services' or page == 'design' or page == 'renovation' or page == 'maintenance' or page == 'clean_up' or page == 'kids_gardens' or page == 'kids_workshops'} ? 'current'">
+                    <a th:href="@{/services.html}" th:text="#{menu.item2}">Services</a>
+                </li>
+                <li th:classappend="${page == 'resources'} ? 'current'">
+                    <a th:href="@{/resources.html}" th:text="#{menu.item3}">Resources</a>
+                </li>
+                <li th:classappend="${page == 'news' or page == 'category' or page == 'post'} ? 'current'">
+                    <a th:href="@{/news.html}" th:text="#{menu.item4}">News</a>
+                </li>
+                <li th:classappend="${page == 'about' or page == 'contact'} ? 'current'">
+                    <a th:href="@{/about.html}" th:text="#{menu.item5}">About</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+</body>
+</html>

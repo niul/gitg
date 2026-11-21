@@ -9,6 +9,8 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import com.niulbird.gitg.BaseTestCase;
 import com.niulbird.gitg.command.ContactData;
 
+import static org.mockito.Mockito.mock;
+
 public class MailUtilTest extends BaseTestCase {
 
 	@Autowired
@@ -25,7 +27,8 @@ public class MailUtilTest extends BaseTestCase {
 		contactData.setName("Joe Bloggs");
 		
 		MailUtil mailUtil = new MailUtil();
-		boolean retVal = mailUtil.sendMail(mailSender, mailMessage, contactData.getEmail(), contactData.getName(), contactData.getMessage());
+		JavaMailSenderImpl mockedMailSender = mock(JavaMailSenderImpl.class);
+		boolean retVal = mailUtil.sendMail(mockedMailSender, mailMessage, contactData.getEmail(), contactData.getName(), contactData.getMessage());
 		
 		Assert.assertTrue(retVal);
 	}

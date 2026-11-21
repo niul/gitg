@@ -1,6 +1,6 @@
 package com.niulbird.gitg;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;

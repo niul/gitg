@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="footer" id="footer">
+    <div class="container">
+        <section>
+            <h3 th:text="#{footer.contact}">Contact</h3>
+            <p th:text="#{footer.phone.value}"></p>
+            <p th:text="#{footer.email.value}"></p>
+        </section>
+    </div>
+    <div class="copyright">
+        <ul class="menu">
+            <li th:text="|© ${#dates.year(#dates.createNow())} #{footer.copyright}|"></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

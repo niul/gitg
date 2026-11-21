@@ -107,7 +107,7 @@ public class UIController extends BaseController {
 	private ModelAndView setView(String pageName, String title) {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName(pageName);
+		mav.setViewName(HOME.equals(pageName) ? "index" : "page");
 		mav.addObject(PAGE, pageName);
 		mav.addObject(TITLE, title);
 		mav.addObject("contactData", new ContactData());

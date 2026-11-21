@@ -40,18 +40,6 @@
     	</property>
     </bean>
     
-    <!-- Tiles support -->
-    <bean id="tilesConfigurer"
-          class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-        <property name="definitions">
-            <value>/WEB-INF/tiles.xml</value>
-        </property>
-    </bean>
-
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
-    </bean>
-
     <!-- Locale support -->
     <bean id="localeResolver"
           class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
@@ -115,12 +103,6 @@
     <!-- Cache -->
     <cache:annotation-driven />
     <bean id="cacheManager"
-      class="org.springframework.cache.ehcache.EhCacheCacheManager" 
-      p:cache-manager-ref="ehcache"/>
-
-	<!-- EhCache library setup -->
-	<bean id="ehcache"
-      class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" 
-      p:config-location="classpath:ehcache.xml"/>
+      class="org.springframework.cache.concurrent.ConcurrentMapCacheManager" />
 
 </beans>

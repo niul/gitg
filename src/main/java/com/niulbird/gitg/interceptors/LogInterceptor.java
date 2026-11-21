@@ -1,16 +1,16 @@
 package com.niulbird.gitg.interceptors;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.logging.log4j.ThreadContext;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
 
 import com.niulbird.gitg.util.ControllerUtility;
 
 
-public class LogInterceptor extends HandlerInterceptorAdapter {
+public class LogInterceptor implements org.springframework.web.servlet.HandlerInterceptor {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request,

@@ -2,10 +2,10 @@
 		<f:message key="header.base_url" var="baseUrl"/>
       	<c:set var="params" value="${pageContext.request.queryString}"/>
       	<c:if test="${empty params}">
-			<c:set var="url" value="${baseUrl}${requestScope['javax.servlet.forward.request_uri']}" scope="request"/>
+			<c:set var="url" value="${baseUrl}${requestScope['jakarta.servlet.forward.request_uri']}" scope="request"/>
 		</c:if>
       	<c:if test="${not empty params}">
-      		<c:set var="url" value="${baseUrl}${requestScope['javax.servlet.forward.request_uri']}?${pageContext.request.queryString}" scope="request"/>
+      		<c:set var="url" value="${baseUrl}${requestScope['jakarta.servlet.forward.request_uri']}?${pageContext.request.queryString}" scope="request"/>
       	</c:if>
       	
       	<script type="text/javascript">

@@ -18,7 +18,9 @@
 
     <mvc:annotation-driven />
     <context:annotation-config/>
-    <context:component-scan base-package="com.niulbird.gitg"/>
+    <context:component-scan base-package="com.niulbird.gitg">
+        <context:exclude-filter type="assignable" expression="com.niulbird.gitg.MvcAppConfig"/>
+    </context:component-scan>
     <!--Enables AspectJ auto-proxying -->
     <aop:aspectj-autoproxy/>
 
@@ -31,7 +33,7 @@
     	</property>
     </bean>
     
-  	<context:property-placeholder location="classpath:global.properties"/>
+    <context:property-placeholder location="file:src/main/resources/global.properties"/>
  	
  	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
     	<property name="host" value="${mail.smtp.host}" />

@@ -1,13 +1,15 @@
 package com.niulbird.gitg;
 
+import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.resource.ContentVersionStrategy;
 import org.springframework.web.servlet.resource.VersionResourceResolver;
 
 @Configuration
-public class MvcAppConfig extends WebMvcConfigurationSupport  {
+public class MvcAppConfig implements WebMvcConfigurer  {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		VersionResourceResolver versionResourceResolver = new VersionResourceResolver()
